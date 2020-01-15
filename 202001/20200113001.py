@@ -29,7 +29,7 @@ class cnode(unittest.TestCase):
         time.sleep(2)
 
     def tearDown(self):
-        self.driver.save_screenshot('./001.png')
+        self.driver.save_screenshot('./001.png')  #保存测试截图
         self.driver.quit()
 
 if __name__ == '__main__':
