@@ -1,5 +1,5 @@
 '''
-使用unittest写一个自动注册登录功能
+使用unittest写一个自动注册，登录功能
 '''
 import time
 import unittest
