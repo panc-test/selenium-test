@@ -22,8 +22,9 @@ class cnode(unittest.TestCase):
 
     def test_login(self):
         driver = self.driver
-        driver.find_element_by_id('name').send_keys('')
-        driver.find_element_by_id('pass').send_keys('')
+        driver.find_element_by_link_text('登录').click()
+        driver.find_element_by_id('name').send_keys('testuser1')
+        driver.find_element_by_id('pass').send_keys('123456')
         driver.find_element_by_xpath('//*[@id="signin_form"]/div[3]/input').click()
         time.sleep(2)
 
