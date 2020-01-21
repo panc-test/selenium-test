@@ -1,6 +1,5 @@
 '''
 xlrd库，读取excel表格内容
-xlwt库，用于将内容写入excel
 '''
 import xlrd
 
