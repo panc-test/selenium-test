@@ -28,4 +28,14 @@ action.send_keys('b')
 action.key_up(Keys.CONTROL)
 action.perform()
 
+'''
+不行的写法：
+ActionChains(driver).move_to_element(text_area).click()
+ActionChains(driver).key_down(Keys.CONTROL)
+ActionChains(driver).send_keys('b')
+ActionChains(driver).key_down(Keys.CONTROL)
+ActionChains(driver).perform()
+'''
+
+
 
