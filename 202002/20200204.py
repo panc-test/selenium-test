@@ -4,6 +4,7 @@ python爬虫-抓取微博页面搜索结果并写入文档中
 from selenium import webdriver
 import xlwt
 import time
+
 driver=webdriver.Chrome()
 driver.maximize_window()    #浏览器最大化
 driver.get('https://s.weibo.com/')
@@ -24,7 +25,7 @@ sheet1.write(0,5,'转发数')
 sheet1.write(0,6,'评论数')
 sheet1.write(0,7,'点赞数')
 
-eles=driver.find_element_by_css_selector('div[action-type="feed_list_item"]')
+eles=driver.find_elements_by_css_selector('div[action-type="feed_list_item"]')  #多元素定位
 counter=0
 for ele in eles:
     counter+=1
@@ -32,10 +33,14 @@ for ele in eles:
     username=ele.find_element_by_css_selector('a[class="name"]').text
     time=ele.find_element_by_css_selector('p[class="from"]>a:nth-child(1)').text
     source=ele.find_element_by_css_selector('p[class="from"]>a:nth-child(2)').text
-    coll_num=ele.find_element_by_css_selector('div[class="card-act"]>ul>li:nth-child(1)').text
-    forward_num=ele.find_element_by_css_selector('div[class="card-act"]>ul>li:nth-child(2)').text
-    coument_num=ele.find_element_by_css_selector('div[class="card-act"]>ul>li:nth-child(3)').text
+    coll=ele.find_element_by_css_selector('div[class="card-act"]>ul>li:nth-child(1)').text
+    coll_num=coll.split('收藏')[1]    #split分割字符串之后得到的是一个列表
+    forward=ele.find_element_by_css_selector('div[class="card-act"]>ul>li:nth-child(2)').text
+    forward_num=forward.split('转发')[1]
+    coument=ele.find_element_by_css_selector('div[class="card-act"]>ul>li:nth-child(3)').text
+    coument_num=coument.split('评论')[1]
     like_num=ele.find_element_by_css_selector('div[class="card-act"]>ul>li:nth-child(4)').text
+
     sheet1.write(counter, 0, title)
     sheet1.write(counter, 1, username)
     sheet1.write(counter, 2, time)
