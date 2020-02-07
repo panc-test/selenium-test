@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="2" hostname="DESKTOP-D0PLK68" name="pytest" skipped="0" tests="3" time="0.137" timestamp="2020-02-07T16:00:46.271499"><testcase classname="test_class.TestClass" file="test_class.py" line="3" name="test_one" time="0.000"></testcase><testcase classname="test_class.TestClass" file="test_class.py" line="7" name="test_two" time="0.000"><failure message="AssertionError: assert False
+ +  where False = hasattr(&apos;hello&apos;, &apos;check&apos;)">self = &lt;test_class.TestClass object at 0x00000211284BF8E0&gt;
+
+    def test_two(self):
+        x = &quot;hello&quot;
+&gt;       assert hasattr(x, &apos;check&apos;)
+E       AssertionError: assert False
+E        +  where False = hasattr(&apos;hello&apos;, &apos;check&apos;)
+
+test_class.py:10: AssertionError</failure></testcase><testcase classname="test_sample" file="test_sample.py" line="5" name="test_func" time="0.000"><failure message="assert 4 == 5
+ +  where 4 = func(3)">def test_func():
+&gt;       assert func(3) == 5
+E       assert 4 == 5
+E        +  where 4 = func(3)
+
+test_sample.py:7: AssertionError</failure></testcase></testsuite></testsuites>
